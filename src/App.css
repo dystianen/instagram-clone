@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&family=Rubik&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+    --tab-width: 260px
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    background: #2a262c;
+    font-family: "Rubix", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--tab-width);
+    height: 100%;
+    background: #121114;
+    transition: 0.4s;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+    margin-bottom: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar header button {
+    flex: 1 1 auto;
+    display: grid;
+    place-items: center;
+    color: lightgray;
+    opacity: 0.5;
+}
+
+.sidebar header button.active {
+    opacity: 1;
+}
+
+.sidebar header .underline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 33.33%;
+    height: 3px;
+    background: #9d5bff;
+    transition: 0.3s;
+}
+
+.tabs {
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.tabs > div {
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tabs > div > div {
+    width: var(--tab-width);
 }
